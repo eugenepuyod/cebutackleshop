@@ -182,8 +182,8 @@ const addToCart = () => {
         <div class="mb-8 pl-1">
           <h3 class="font-bold text-gray-900 mb-4 tracking-wide uppercase text-sm">Max Price</h3>
           <div class="flex items-center justify-between mb-2">
-            <span class="text-sm font-medium text-gray-500">$0</span>
-            <span class="text-sm font-bold text-coral-500">${{ maxPrice }}</span>
+            <span class="text-sm font-medium text-gray-500">₱0</span>
+            <span class="text-sm font-bold text-coral-500">₱{{ maxPrice }}</span>
           </div>
           <input 
             type="range" 
@@ -265,7 +265,7 @@ const addToCart = () => {
                   <div class="text-[10px] font-bold text-coral-500 uppercase tracking-widest mb-1">{{ product.category }}</div>
                   <h3 class="text-lg font-bold text-gray-900 leading-tight line-clamp-2 pr-2">{{ product.name }}</h3>
                 </div>
-                <span class="text-lg font-extrabold text-gray-900 shrink-0">${{ product.price.toFixed(2) }}</span>
+                <span class="text-lg font-extrabold text-gray-900 shrink-0">₱{{ product.price.toFixed(2) }}</span>
               </div>
               
               <div class="flex items-center mb-3">
