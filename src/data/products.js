@@ -1,0 +1,19 @@
+export const categoriesList = ['All', 'Fishing Gear', 'Fishing Setup', 'Fishing Reels', 'Fishing Rods', 'Jigging', 'Jigging Setup', 'Trolling Reels', 'Lines', 'Lures', 'Jigs', 'Soft bait & Hooks']
+
+export const tagsList = ['Saltwater', 'Premium', 'Heavy Duty', 'Durable', 'Jigging', 'Carbon', 'Boat', 'Combo', 'Braid', 'PE', 'Trolling', 'Lure', 'Beginner', 'Accessories']
+
+export const products = [
+  { id: 101, name: 'Shimano Stella SW', brand: 'Shimano', price: 1115.99, category: 'Fishing Reels', tags: ['Saltwater', 'Premium'], image: '/images/shimano-fishing-stella-sw-xgc-spinning-reel.webp', shortDesc: 'The ultimate spinning reel for big game fishing.', inStock: true, moreImage: ['/images/shimano-fishing-stella-sw-xgc-spinning-reel.webp', '/images/shimano-stella-2.webp','/images/shimano-stella-3.webp','/images/shimano-stella-4.webp','/images/shimano-stella-5.webp','/images/shimano-stella-6.webp',] },
+  { id: 102, name: 'Daiwa Saltiga', brand: 'Daiwa', price: 1100.00, category: 'Fishing Reels', tags: ['Saltwater', 'Heavy Duty'], image: '/images/daiwa-saltiga-g-2023-jigging-reel.webp', shortDesc: 'Unmatched durability and drag power.', inStock: true, moreImage: ['/images/daiwa-saltiga-g-2023-jigging-reel.webp', '/images/daiwa-saltiga-2.webp','/images/daiwa-saltiga-3.webp','/images/daiwa-saltiga-4.webp','/images/daiwa-saltiga-5.webp','/images/daiwa-saltiga-6.webp',] },
+  { id: 103, name: 'Penn Authority', brand: 'Penn', price: 550.00, category: 'Fishing Reels', tags: ['Saltwater', 'Durable'], image: '/images/okuma-makaira-trolling-reel.webp', shortDesc: 'Sealed system, built like a tank.', inStock: true },
+  { id: 201, name: 'Shimano 21 GRAPPLER Type J', brand: 'Shimano', price: 269.00, category: 'Fishing Rods', tags: ['Jigging', 'Carbon'], image: '/images/shimano-grappler-j.webp', shortDesc: 'High-end jigging rod.', inStock: true },
+  { id: 202, name: 'Daiwa Proteus', brand: 'Daiwa', price: 180.00, category: 'Fishing Rods', tags: ['Boat', 'Heavy Duty'], image: '/images/daiwa-proteus.webp', shortDesc: 'Perfect for heavy boat fishing.', inStock: false },
+  { id: 301, name: 'SHIMANO F Custom 1500HG', brand: 'Shimano', price: 1450.00, category: 'Jigging, Reel', tags: ['Jigging'], image: '/images/shimano-fcustom-1500.webp', shortDesc: 'Ready to fish jigging.', inStock: true },
+  { id: 401, name: 'Shimano Ocea Jigger MX4 PE Saltwater Slow Jigging', brand: 'Shimano', price: 65.00, category: 'Lines', tags: ['Braid', 'PE'], image: '/images/shimano-pe4.webp', shortDesc: 'Smooth and strong PE line.', inStock: true },
+  { id: 501, name: 'NOMAD DESIGN Saltwater Trolling Sinking Lure', brand: 'NOMAD', price: 28.00, category: 'Lures', tags: ['Trolling', 'Lure'], image: '/images/nomad-lure.webp', shortDesc: 'Deep diving trolling lure.', inStock: true },
+  { id: 502, name: 'SHIMANO BUTTERFLY FLAT FALL JIG', brand: 'Shimano', price: 14.00, category: 'Jigs', tags: ['Jigging', 'Saltwater'], image: '/images/shimano-flat-fall-jig.webp', shortDesc: 'Classic flat fall jig.', inStock: true },
+  { id: 503, name: 'Rapala X-Rap Magnum 15 Fishing Lure', brand: 'Rapala', price: 26.00, category: 'Lures', tags: ['Trolling', 'Lure'], image: '/images/rapala-lure-minnow.webp', shortDesc: 'World famous magnum lure.', inStock: true },
+  { id: 601, name: 'Fishing Tackle Box Kit Beginners Equipment', brand: 'Fishing Tackle', price: 23.00, category: 'Soft bait & Hooks', tags: ['Saltwater', 'Combo', 'Beginner', 'Accessories'], image: '/images/fishingkits.webp', shortDesc: 'Perfect kit for beginners.', inStock: true },
+  { id: 602, name: 'Shimano 14 Ocea Jigger 1500HG Limited Jigging', brand: 'Shimano', price: 339.00, category: 'Jigging', tags: ['Overhead Reels', 'Jigging', 'Heavy Duty', 'Durable'], image: '/images/shimano-14-limited.webp', shortDesc: 'Ready for big catch fish', inStock: true },
+  
+]
