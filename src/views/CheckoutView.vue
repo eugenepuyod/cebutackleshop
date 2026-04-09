@@ -204,7 +204,7 @@ const placeOrder = () => {
                 <div v-else-if="selectedPayment === 'Cash on Delivery'">
                   <div class="flex items-start">
                     <div class="w-8 h-8 rounded-full bg-green-100 text-green-600 flex items-center justify-center shrink-0 mr-3 mt-0.5">
-                      <span class="text-sm font-bold">$</span>
+                      <span class="text-sm font-bold">₱</span>
                     </div>
                     <div>
                       <h3 class="text-sm font-bold text-gray-900 mb-1">Pay with Cash</h3>
@@ -236,7 +236,7 @@ const placeOrder = () => {
                   </div>
                 </div>
                 <div class="font-extrabold text-gray-900 text-sm whitespace-nowrap">
-                  ${{ (item.price * item.quantity).toFixed(2) }}
+                  ₱{{ (item.price * item.quantity).toFixed(2) }}
                 </div>
               </div>
             </div>
@@ -260,7 +260,7 @@ const placeOrder = () => {
             <div class="space-y-4 mb-8">
               <div class="flex justify-between text-gray-600">
                 <span>Subtotal</span>
-                <span class="font-bold text-gray-900">${{ cartStore.subtotal.toFixed(2) }}</span>
+                <span class="font-bold text-gray-900">₱{{ cartStore.subtotal.toFixed(2) }}</span>
               </div>
               <div class="flex justify-between text-gray-600">
                 <span>Shipping</span>
@@ -268,11 +268,11 @@ const placeOrder = () => {
               </div>
               <div v-if="cartStore.discountAmount > 0" class="flex justify-between text-green-600 bg-green-50 -mx-4 px-4 py-3 rounded-lg border border-green-100">
                 <span class="font-bold">Discount ({{ cartStore.discountRate * 100 }}%)</span>
-                <span class="font-bold">-${{ cartStore.discountAmount.toFixed(2) }}</span>
+                <span class="font-bold">-₱{{ cartStore.discountAmount.toFixed(2) }}</span>
               </div>
               <div class="flex justify-between items-center border-t border-gray-100 pt-5">
                 <span class="text-lg font-bold text-gray-900">Total</span>
-                <span class="text-3xl font-extrabold text-coral-500">${{ cartStore.total.toFixed(2) }}</span>
+                <span class="text-3xl font-extrabold text-coral-500">₱{{ cartStore.total.toFixed(2) }}</span>
               </div>
             </div>
 

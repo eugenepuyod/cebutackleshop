@@ -37,7 +37,7 @@ const isEmpty = computed(() => cartStore.items.length === 0)
             <div class="flex-1 w-full text-center sm:text-left pt-2 sm:pt-0">
               <div class="text-xs font-bold text-coral-500 uppercase tracking-widest mb-1">{{ item.category }}</div>
               <h3 class="text-xl font-bold text-gray-900 mb-2 truncate pr-8">{{ item.name }}</h3>
-              <p class="text-2xl font-extrabold text-gray-900 mb-4">${{ item.price.toFixed(2) }}</p>
+              <p class="text-2xl font-extrabold text-gray-900 mb-4">₱{{ item.price.toFixed(2) }}</p>
               
               <div class="flex items-center justify-center sm:justify-start">
                 <div class="flex items-center border border-gray-200 rounded-lg p-1 bg-white inline-flex w-32 justify-between">
@@ -57,7 +57,7 @@ const isEmpty = computed(() => cartStore.items.length === 0)
             <div class="space-y-4 mb-6">
               <div class="flex justify-between text-gray-600">
                 <span>Subtotal ({{ cartStore.totalItemsCount }} items)</span>
-                <span class="font-bold text-gray-900">${{ cartStore.subtotal.toFixed(2) }}</span>
+                <span class="font-bold text-gray-900">₱{{ cartStore.subtotal.toFixed(2) }}</span>
               </div>
               <div class="flex justify-between text-gray-600">
                 <span>Shipping</span>
@@ -67,7 +67,7 @@ const isEmpty = computed(() => cartStore.items.length === 0)
             <div class="border-t border-gray-100 pt-4 mb-8">
               <div class="flex justify-between items-center">
                 <span class="text-lg font-bold text-gray-900">Total</span>
-                <span class="text-3xl font-extrabold text-coral-500">${{ cartStore.total.toFixed(2) }}</span>
+                <span class="text-3xl font-extrabold text-coral-500">₱{{ cartStore.total.toFixed(2) }}</span>
               </div>
             </div>
             <router-link to="/checkout" class="w-full bg-coral-500 hover:bg-coral-600 text-white font-bold py-4 rounded-xl shadow-lg shadow-coral-500/30 transition-all flex items-center justify-center hover:scale-[1.02] active:scale-95 text-lg">
