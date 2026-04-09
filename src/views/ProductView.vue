@@ -182,7 +182,7 @@ const addToCart = () => {
             </span>
           </div>
           
-          <div class="text-4xl font-extrabold text-gray-900 mb-8">${{ product.price.toFixed(2) }}</div>
+          <div class="text-4xl font-extrabold text-gray-900 mb-8">₱{{ product.price.toFixed(2) }}</div>
           
           <p class="text-lg text-gray-600 leading-relaxed mb-8">{{ product.shortDesc }}</p>
           
@@ -214,7 +214,7 @@ const addToCart = () => {
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div class="flex items-center p-4 bg-gray-50 rounded-xl border border-gray-100">
                 <Truck class="w-6 h-6 text-coral-500 mr-3 shrink-0" />
-                <span class="text-sm font-medium text-gray-700">Free Shipping over $200</span>
+                <span class="text-sm font-medium text-gray-700">Free Shipping over ₱200</span>
               </div>
               <div class="flex items-center p-4 bg-gray-50 rounded-xl border border-gray-100">
                 <ShieldCheck class="w-6 h-6 text-coral-500 mr-3 shrink-0" />
@@ -250,7 +250,7 @@ const addToCart = () => {
               <div class="p-6 flex flex-col flex-1 justify-between">
                 <h3 class="font-bold text-gray-900 text-lg leading-snug">{{ rec.name }}</h3>
                 <div class="flex items-center justify-between mt-4">
-                  <p class="font-extrabold text-coral-500 text-xl">${{ rec.price.toFixed(2) }}</p>
+                  <p class="font-extrabold text-coral-500 text-xl">₱{{ rec.price.toFixed(2) }}</p>
                   <span class="w-8 h-8 rounded-full bg-orange-50 text-coral-500 flex items-center justify-center group-hover:bg-coral-500 group-hover:text-white transition-colors">
                     <ArrowRight class="w-4 h-4" />
                   </span>
