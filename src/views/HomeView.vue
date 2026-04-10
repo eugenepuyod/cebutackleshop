@@ -177,7 +177,7 @@ onUnmounted(() => {
                 </router-link>
                 <router-link 
                   :to="'/shop?category=' + slide.buttonLink"
-                  class="inline-flex items-center justify-center px-10 py-3 text-md sm:text-lg font-extrabold text-white bg-slate-900 rounded-full hover:bg-slate-800 transition-all shadow-lg hover:scale-105 active:scale-95 border-1 border-white/20">
+                  class="inline-flex items-center justify-center px-10 py-4 text-md sm:text-lg font-extrabold text-white bg-slate-900 rounded-full hover:bg-slate-800 transition-all shadow-lg hover:scale-105 active:scale-95 border-1 border-white/20">
                   {{ slide.buttonText }}
                   <ArrowRight class="ml-3 w-6 h-6 group-hover:translate-x-2 transition-transform" />
                 </router-link>
