@@ -3,7 +3,7 @@ import { ref, computed, onMounted, watch } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import { useCartStore } from '../stores/cart'
 import { products } from '../data/products'
-import { ChevronLeft, ChevronRight, Star, ArrowRight, Minus, Plus, ShoppingBag, ShieldCheck, Truck } from 'lucide-vue-next'
+import { ChevronLeft, ChevronRight, Star, StarHalf, ArrowRight, Minus, Plus, ShoppingBag, ShieldCheck, Truck } from 'lucide-vue-next'
 import { Swiper, SwiperSlide } from 'swiper/vue'
 import { Navigation, Pagination } from 'swiper/modules'
 import 'swiper/css'
@@ -170,11 +170,31 @@ const addToCart = () => {
         <div class="w-full lg:w-1/2 flex flex-col pt-2">
           <div class="text-sm font-bold text-coral-500 uppercase tracking-widest mb-2 opacity-90">{{ product.category }}</div>
           <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-gray-900 mb-4 tracking-tight leading-tight">{{ product.name }}</h1>
-          
           <div class="flex items-center mb-6 gap-4">
             <div class="flex items-center">
-              <Star v-for="i in 5" :key="i" class="w-5 h-5 text-yellow-400 fill-current" />
-              <span class="ml-2 text-sm text-gray-600 font-medium">4.9 (128)</span>
+              <!-- Full stars -->
+              <Star
+                v-for="i in Math.floor(product.rating)"
+                :key="'full-' + i"
+                class="w-5 h-5 text-yellow-400 fill-current"
+              />
+
+              <!-- Half star -->
+              <StarHalf
+                v-if="product.rating % 1 !== 0"
+                class="w-5 h-5 text-yellow-400 fill-current"
+              />
+
+              <!-- Empty stars -->
+              <Star
+                v-for="i in 5 - Math.ceil(product.rating)"
+                :key="'empty-' + i"
+                class="w-5 h-5 text-gray-300"
+              />
+
+              <span class="ml-2 text-sm text-gray-600 font-medium">
+                {{ product.rating }} ({{product.totalRating}})
+              </span>
             </div>
             <span class="w-1 h-1 bg-gray-300 rounded-full"></span>
             <span class="text-sm text-green-600 font-bold bg-green-50 px-2.5 py-1 rounded-md border border-green-100 flex items-center">
@@ -249,6 +269,31 @@ const addToCart = () => {
               </div>
               <div class="p-6 flex flex-col flex-1 justify-between">
                 <h3 class="font-bold text-gray-900 text-lg leading-snug">{{ rec.name }}</h3>
+                <div class="flex items-center">
+                  <!-- Full stars -->
+                  <Star
+                    v-for="i in Math.floor(rec.rating)"
+                    :key="'full-' + i"
+                    class="w-4 h-4 text-yellow-400 fill-current"
+                  />
+
+                  <!-- Half star -->
+                  <StarHalf
+                    v-if="rec.rating % 1 !== 0"
+                    class="w-4 h-4 text-yellow-400 fill-current"
+                  />
+
+                  <!-- Empty stars -->
+                  <Star
+                    v-for="i in 5 - Math.ceil(rec.rating)"
+                    :key="'empty-' + i"
+                    class="w-4 h-4 text-gray-300"
+                  />
+
+                  <span class="ml-2 text-sm text-gray-600 font-medium">
+                    {{ rec.rating }} ({{rec.totalRating}})
+                  </span>
+                </div>
                 <div class="flex items-center justify-between mt-4">
                   <p class="font-extrabold text-coral-500 text-xl">₱{{ rec.price.toFixed(2) }}</p>
                   <span class="w-8 h-8 rounded-full bg-orange-50 text-coral-500 flex items-center justify-center group-hover:bg-coral-500 group-hover:text-white transition-colors">

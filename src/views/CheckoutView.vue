@@ -225,7 +225,7 @@ const placeOrder = () => {
             <!-- Items -->
             <div class="space-y-4 mb-6 max-h-60 overflow-y-auto pr-2 custom-scrollbar">
               <div v-for="item in cartStore.items" :key="item.id" class="flex justify-between gap-4">
-                <div class="flex items-start">
+                <div class="flex items-start pt-4">
                   <div class="relative w-16 h-16 bg-gray-50 rounded-lg shrink-0 border border-gray-100 mr-3">
                     <img :src="item.image" :alt="item.name" class="w-full h-full object-contain mix-blend-multiply p-1">
                     <span class="absolute -top-2 -right-2 bg-gray-800 text-white text-[10px] font-bold w-5 h-5 flex items-center justify-center rounded-full border border-white">{{ item.quantity }}</span>

@@ -1,6 +1,6 @@
 <script setup>
 import { ref, onMounted, onUnmounted } from 'vue'
-import { ArrowRight, Star, Quote, ChevronRight, ChevronLeft, Heart, ShoppingBag, Users, Award } from 'lucide-vue-next'
+import { ArrowRight, Star, StarHalf, Quote, ChevronRight, ChevronLeft, Heart, ShoppingBag, Users, Award } from 'lucide-vue-next'
 import { Swiper, SwiperSlide } from 'swiper/vue'
 import { Autoplay, EffectFade, Navigation, Pagination } from 'swiper/modules'
 import { useCartStore } from '../stores/cart'
@@ -31,10 +31,10 @@ const categories = [
 ]
 
 const features = [
-  { id: 101, name: 'Shimano Stella SW', price: 999.00, category: 'Fishing Reels', tags: ['Saltwater', 'Premium'], shortDesc: 'The ultimate spinning reel for massive game.', image: '/images/shimano-fishing-stella-sw-xgc-spinning-reel.webp' },
-  { id: 102, name: 'Daiwa Saltiga', price: 1100.00, category: 'Fishing Reels', tags: ['Deep Sea', 'Durable'], shortDesc: 'Unmatched durability and pulling strength.', image: '/images/daiwa-saltiga-g-2023-jigging-reel.webp' },
-  { id: 103, name: 'Okuma Makaira', price: 650.00, category: 'Trolling Reels', tags: ['Trolling', 'Heavy'], shortDesc: 'World-class 2-speed offshore reel.', image: '/images/okuma-makaira-trolling-reel.webp' },
-  { id: 104, name: 'Penn Authority', price: 550.00, category: 'Fishing Reels', tags: ['Sealed', 'Tough'], shortDesc: 'IPX8 sealed body against extreme elements.', image: '/images/penn-authority-spinning-reel.webp' }
+  { id: 101, name: 'Shimano Stella SW', rating: 3.5, totalRating: 200, stock: 3, brand: 'Shimano', price: 1115.99, category: 'Fishing Reels', tags: ['Saltwater', 'Premium'], image: '/images/shimano-fishing-stella-sw-xgc-spinning-reel.webp', shortDesc: 'The ultimate spinning reel for big game fishing.', inStock: true, moreImage: ['/images/shimano-fishing-stella-sw-xgc-spinning-reel.webp', '/images/shimano-stella-2.webp','/images/shimano-stella-3.webp','/images/shimano-stella-4.webp','/images/shimano-stella-5.webp','/images/shimano-stella-6.webp',] },
+  { id: 102, name: 'Daiwa Saltiga', rating: 3.5, totalRating: 47, stock: 22, brand: 'Daiwa', price: 1100.00, category: 'Fishing Reels', tags: ['Saltwater', 'Heavy Duty'], image: '/images/daiwa-saltiga-g-2023-jigging-reel.webp', shortDesc: 'Unmatched durability and drag power.', inStock: true, moreImage: ['/images/daiwa-saltiga-g-2023-jigging-reel.webp', '/images/daiwa-saltiga-2.webp','/images/daiwa-saltiga-3.webp','/images/daiwa-saltiga-4.webp','/images/daiwa-saltiga-5.webp','/images/daiwa-saltiga-6.webp',] },
+  { id: 103, name: 'Okuma Makaira', rating: 4.5, totalRating: 30, stock: 10, brand: 'Okuma', price: 1100.00, category: 'Trolling Reels', tags: ['Trolling', 'Heavy'], image: '/images/okuma-makaira-trolling-reel.webp', shortDesc: 'World-class 2-speed offshore reel.', inStock: true, moreImage: ['/images/okuma-makaira-trolling-reel.webp', '/images/okuma-makaira-trolling-reel-2.webp','/images/okuma-makaira-trolling-reel-3.webp','/images/okuma-makaira-trolling-reel-4.webp','/images/okuma-makaira-trolling-reel-5.webp','/images/okuma-makaira-trolling-reel-6.webp',] },
+  { id: 104, name: 'Penn Authority', rating: 5, totalRating: 128, stock: 10, brand: 'Penn', price: 550.00, category: 'Fishing Reels', tags: ['Saltwater', 'Durable'], image: '/images/penn-authority-spinning-reel.webp', shortDesc: 'IPX8 sealed body against extreme elements..', inStock: true },
 ]
 
 const reviews = [
@@ -275,8 +275,31 @@ onUnmounted(() => {
                 </div>
                 
                 <div class="flex items-center mb-3">
-                  <Star v-for="i in 5" :key="i" class="w-3 h-3 text-yellow-400 fill-current" />
-                  <span class="text-[10px] text-gray-400 ml-1.5">(12)</span>
+                  <!-- <Star v-for="i in 5" :key="i" class="w-3 h-3 text-yellow-400 fill-current" />
+                  <span class="text-[10px] text-gray-400 ml-1.5">(12)</span> -->
+                    <!-- Full stars -->
+                    <Star
+                      v-for="i in Math.floor(product.rating)"
+                      :key="'full-' + i"
+                      class="w-3 h-3 text-yellow-400 fill-current"
+                    />
+
+                    <!-- Half star -->
+                    <StarHalf
+                      v-if="product.rating % 1 !== 0"
+                      class="w-3 h-3 text-yellow-400 fill-current"
+                    />
+
+                    <!-- Empty stars -->
+                    <Star
+                      v-for="i in 5 - Math.ceil(product.rating)"
+                      :key="'empty-' + i"
+                      class="w-3 h-3 text-gray-300"
+                    />
+
+                    <span class="text-[10px] text-gray-400 ml-1.5">
+                      {{ product.rating }} ({{product.totalRating}})
+                    </span>
                 </div>
                 
                 <p class="text-sm text-gray-500 line-clamp-2 leading-relaxed mb-auto">{{ product.shortDesc }}</p>

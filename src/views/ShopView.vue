@@ -1,7 +1,7 @@
 <script setup>
 import { ref, computed, watch } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
-import { Grid, List, Search, SlidersHorizontal, ArrowRight, X, Heart, ShoppingBag, Plus, Minus, ChevronLeft, ChevronRight } from 'lucide-vue-next'
+import { Grid, List, Search, SlidersHorizontal, Star, StarHalf, ArrowRight, X, Heart, ShoppingBag, Plus, Minus, ChevronLeft, ChevronRight } from 'lucide-vue-next'
 import { useCartStore } from '../stores/cart'
 import { products } from  '../data/products'
 
@@ -269,8 +269,31 @@ const addToCart = () => {
               </div>
               
               <div class="flex items-center mb-3">
-                <svg v-for="i in 5" :key="i" class="w-4 h-4 text-yellow-400 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
-                <span class="text-[10px] text-gray-400 ml-1.5">(12)</span>
+                <!-- <svg v-for="i in 5" :key="i" class="w-4 h-4 text-yellow-400 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                <span class="text-[10px] text-gray-400 ml-1.5">(12)</span> -->
+                <!-- Full stars -->
+                <Star
+                  v-for="i in Math.floor(product.rating)"
+                  :key="'full-' + i"
+                  class="w-4 h-4 text-yellow-400 fill-current"
+                />
+
+                <!-- Half star -->
+                <StarHalf
+                  v-if="product.rating % 1 !== 0"
+                  class="w-4 h-4 text-yellow-400 fill-current"
+                />
+
+                <!-- Empty stars -->
+                <Star
+                  v-for="i in 5 - Math.ceil(product.rating)"
+                  :key="'empty-' + i"
+                  class="w-4 h-4 text-gray-300"
+                />
+
+                <span class="text-[10px] text-gray-400 ml-1.5">
+                  {{ product.rating }} ({{product.totalRating}})
+                </span>
               </div>
               
               <p class="text-sm text-gray-500 line-clamp-2 leading-relaxed mb-auto">{{ product.shortDesc }}</p>
@@ -376,7 +399,7 @@ const addToCart = () => {
           >
         </div>
         
-        <div class="p-8 flex flex-col flex-1">
+        <!-- <div class="p-8 flex flex-col flex-1">
           <div class="text-sm font-bold text-coral-500 uppercase tracking-widest mb-3 opacity-90">{{ quickViewProduct.category }}</div>
           <h2 class="text-3xl font-extrabold text-gray-900 mb-3 leading-tight">{{ quickViewProduct.name }}</h2>
           <div class="text-4xl font-extrabold text-gray-900 mb-8">₱{{ quickViewProduct.price.toFixed(2) }}</div>
@@ -416,7 +439,79 @@ const addToCart = () => {
               </router-link>
             </div>
           </div>
+        </div> -->
+
+        <div class="p-6 pt-0 flex flex-col flex-1 relative bg-white">
+          <div class="flex justify-between items-start gap-4 mb-2">
+            <div class="flex-1">
+                <div class="text-[10px] font-bold text-coral-500 uppercase tracking-widest mb-1">{{ quickViewProduct.category }}</div>
+                <h3 class="text-lg font-bold text-gray-900 leading-tight line-clamp-2 pr-2">{{ quickViewProduct.name }}</h3>
+            </div>
+            <span class="text-2xl font-extrabold text-gray-900 shrink-0">₱{{ quickViewProduct.price.toFixed(2) }}</span>
+          </div>
+          
+          <div class="flex items-center mb-3">
+            <!-- <svg v-for="i in 5" :key="i" class="w-4 h-4 text-yellow-400 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+            <span class="text-[10px] text-gray-400 ml-1.5">(12)</span> -->
+            <!-- Full stars -->
+            <Star
+              v-for="i in Math.floor(quickViewProduct.rating)"
+              :key="'full-' + i"
+              class="w-4 h-4 text-yellow-400 fill-current"
+            />
+
+            <!-- Half star -->
+            <StarHalf
+              v-if="quickViewProduct.rating % 1 !== 0"
+              class="w-4 h-4 text-yellow-400 fill-current"
+            />
+
+            <!-- Empty stars -->
+            <Star
+              v-for="i in 5 - Math.ceil(quickViewProduct.rating)"
+              :key="'empty-' + i"
+              class="w-4 h-4 text-gray-300"
+            />
+
+            <span class="text-[10px] text-gray-400 ml-1.5">
+              {{ quickViewProduct.rating }} ({{quickViewProduct.totalRating}})
+            </span>
+          </div>
+          
+          <p class="hidden text-sm text-gray-500 line-clamp-2 leading-relaxed mb-auto">{{ quickViewProduct.shortDesc }}</p>
+          
+          <div class="hidden flex flex-wrap gap-1.5 pt-4 mt-2">
+            <span v-for="tag in quickViewProduct.tags" :key="tag" class="text-[9px] font-bold text-gray-600 bg-gray-100 px-2.5 py-1 rounded-md uppercase tracking-wider">{{ tag }}</span>
+          </div>
+
+          <div class="mt-auto">
+            <div v-if="quickViewProduct.inStock" class="flex flex-col gap-5">
+              <div class="flex items-center gap-4">
+                <span class="font-semibold text-gray-900 w-24 tracking-wide uppercase text-sm">Quantity</span>
+                <div class="flex items-center justify-between border-2 border-gray-200 rounded-lg p-1 bg-white flex-1 max-w-[140px]">
+                  <button @click="quickViewQty > 1 && quickViewQty--" class="p-2 text-gray-500 hover:text-black transition-colors bg-gray-50 rounded-md"><Minus class="w-4 h-4" /></button>
+                  <span class="font-extrabold text-gray-900 px-2 text-lg">{{ quickViewQty }}</span>
+                  <button @click="quickViewQty++" class="p-2 text-gray-500 hover:text-black transition-colors bg-gray-50 rounded-md"><Plus class="w-4 h-4" /></button>
+                </div>
+              </div>
+              <button @click="addToCart" class="w-full bg-coral-500 hover:bg-coral-600 text-white font-bold py-4 rounded-xl shadow-lg shadow-coral-500/30 transition-all flex items-center justify-center hover:scale-[1.02] active:scale-95 text-lg">
+                <ShoppingBag class="w-6 h-6 mr-3" /> Add to Cart
+              </button>
+            </div>
+            <div v-else class="text-center p-5 bg-red-50 text-red-600 font-bold rounded-xl border border-red-100">
+              Currently Out of Stock
+            </div>
+            
+            <div class="text-center border-t border-gray-100 pt-6">
+              <router-link :to="`/product/${quickViewProduct.id}`" class="text-coral-500 font-bold hover:underline inline-flex items-center group">
+                View Full Product Details <ArrowRight class="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
+              </router-link>
+            </div>
+          </div>
+
         </div>
+
+
       </div>
     </transition>
   </div>
