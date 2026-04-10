@@ -148,7 +148,7 @@ onUnmounted(() => {
 <template>
   <div class="home-page overflow-hidden">
     <!-- Hero Banner -->
-    <section class="h-[680px] sm:h-[550px] md:h-[600px] lg:h-[600px] relative mt-[-72px] overflow-hidden">
+    <section class="h-[680px] sm:h-[680px] md:h-[600px] relative mt-[-72px] overflow-hidden">
       <swiper 
         :modules="swiperModules"
         :effect="'fade'"
@@ -165,7 +165,7 @@ onUnmounted(() => {
           <div class="absolute inset-0 bg-gray-900/40 bg-gradient-to-t from-gray-900/80"></div>
           <div class="absolute inset-0 flex items-center justify-center">
             <div class="text-center px-4 max-w-4xl mx-auto transform mt-8">
-              <h1 class="text-4xl sm:text-6xl md:text-7xl font-extrabold text-white mb-6 tracking-tight leading-tight slide-title">
+              <h1 class="text-5xl sm:text-6xl md:text-6xl  font-extrabold text-white mb-6 tracking-tight leading-tight slide-title">
                 {{ slide.titleMain }} <br/><span class="text-coral-400">{{ slide.titleHighlight }}</span>
               </h1>
               <p class="text-lg sm:text-xl md:text-2xl text-gray-200 mb-10 max-w-2xl mx-auto font-light slide-subtitle">
