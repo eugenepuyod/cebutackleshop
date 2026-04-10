@@ -308,8 +308,14 @@ onUnmounted(() => {
                   <span v-for="tag in product.tags" :key="tag" class="text-[9px] font-bold text-gray-600 bg-gray-100 px-2.5 py-1 rounded-md uppercase tracking-wider">{{ tag }}</span>
                 </div>
                 
-                <div class="absolute bottom-0 left-0 w-full p-5 transform translate-y-full group-hover:translate-y-0 opacity-0 group-hover:opacity-100 transition-all duration-300 bg-white/95 backdrop-blur-sm z-20">
-                  <button @click.prevent="cartStore.addItem(product, 1)" class="w-full bg-coral-500 hover:bg-slate-900 text-white font-bold py-3.5 rounded-xl flex items-center justify-center transition-colors shadow-lg text-sm">
+                <div 
+                :class="[
+                  'absolute bottom-0 left-0 w-full p-5 transition-all duration-300 bg-white/95 backdrop-blur-sm z-20',
+                  show ? 'translate-y-0 opacity-100' : 'translate-y-full opacity-0'
+                ]">
+                  <button 
+                  @click.stop.prevent="cartStore.addItem(product, 1)"
+      class="w-full bg-coral-500 active:bg-slate-900 text-white font-bold py-3.5 rounded-xl flex items-center justify-center shadow-lg text-sm">
                     <ShoppingBag class="w-4 h-4 mr-2" /> Add to Cart
                   </button>
                 </div>
