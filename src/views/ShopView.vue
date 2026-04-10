@@ -478,7 +478,7 @@ const addToCart = () => {
             </span>
           </div>
           
-          <p class="hidden text-sm text-gray-500 line-clamp-2 leading-relaxed mb-auto">{{ quickViewProduct.shortDesc }}</p>
+          <p class="text-sm text-gray-500 line-clamp-2 leading-relaxed mb-auto">{{ quickViewProduct.shortDesc }}</p>
           
           <div class="hidden flex flex-wrap gap-1.5 pt-4 mt-2">
             <span v-for="tag in quickViewProduct.tags" :key="tag" class="text-[9px] font-bold text-gray-600 bg-gray-100 px-2.5 py-1 rounded-md uppercase tracking-wider">{{ tag }}</span>
