@@ -340,7 +340,7 @@ onUnmounted(() => {
           <div class="w-24 h-1.5 bg-gradient-to-r from-coral-500 to-blue-500 mx-auto rounded-full"></div>
         </div>
         
-        <div class="relative max-w-7xl mx-auto px-20 md:px-24 reveal reveal-fade-up" style="transition-delay: 200ms;">
+        <div class="relative max-w-7xl mx-auto px-0 md:px-24 lg:px-20 reveal reveal-fade-up" style="transition-delay: 200ms;">
           <swiper 
             :modules="swiperModules"
             :slidesPerView="1"

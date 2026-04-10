@@ -369,11 +369,7 @@ const addToCart = () => {
           <button @click="closeQuickView" class="absolute top-6 right-6 p-2 bg-white rounded-full shadow-md hover:bg-gray-100 hover:scale-110 transition-all z-10">
             <X class="w-5 h-5 text-gray-700" />
           </button>
-          <img 
-          :src="quickViewProduct.image" 
-          :alt="quickViewProduct.name" 
-          class="h-full object-contain mix-blend-multiply" 
-          >
+          <img :src="quickViewProduct.image" :alt="quickViewProduct.name" class="h-full object-contain mix-blend-multiply">
         </div>
         
         <div class="p-8 flex flex-col flex-1">
