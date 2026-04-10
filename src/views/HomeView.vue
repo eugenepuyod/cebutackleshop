@@ -148,7 +148,7 @@ onUnmounted(() => {
 <template>
   <div class="home-page overflow-hidden">
     <!-- Hero Banner -->
-    <section class="h-[550px] md:h-[600px] lg:h-[600px] relative mt-[-72px] overflow-hidden">
+    <section class="h-[600px] sm:h-[550px] md:h-[600px] lg:h-[600px] relative mt-[-72px] overflow-hidden">
       <swiper 
         :modules="swiperModules"
         :effect="'fade'"
