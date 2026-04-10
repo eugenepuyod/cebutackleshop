@@ -134,7 +134,7 @@ const scrollToBottom = async () => {
     <!-- Floating Toggle Button -->
     <button 
       @click="toggleChat" 
-      class="bg-coral-500 hover:bg-coral-600 text-white p-4 rounded-full shadow-xl shadow-coral-500/30 transition-transform transform hover:scale-110 active:scale-95 focus:outline-none flex items-center justify-center relative group"
+      class="bg-coral-500 hover:bg-coral-600 text-white p-2 rounded-full shadow-xl shadow-coral-500/30 transition-transform transform hover:scale-110 active:scale-95 focus:outline-none flex items-center justify-center relative group"
     >
       <transition name="fade" mode="out-in">
         <MessageCircle v-if="!isOpen" class="w-6 h-6 transform group-hover:-translate-y-0.5 transition-transform" />

@@ -148,7 +148,7 @@ onUnmounted(() => {
 <template>
   <div class="home-page overflow-hidden">
     <!-- Hero Banner -->
-    <section class="h-[600px] sm:h-[600px] lg:h-[700px] relative mt-[-72px] overflow-hidden">
+    <section class="h-[550px] md:h-[600px] lg:h-[600px] relative mt-[-72px] overflow-hidden">
       <swiper 
         :modules="swiperModules"
         :effect="'fade'"
@@ -172,12 +172,12 @@ onUnmounted(() => {
                 {{ slide.subtitle }}
               </p>
               <div class="slide-button mt-4 flex justify-center gap-4 flex-wrap">
-                <router-link to="/shop" class="inline-flex items-center justify-center px-12 py-5 text-xl sm:text-lg font-extrabold text-white bg-coral-500 rounded-full hover:bg-coral-600 transition-all shadow-[0_0_40px_rgba(255,127,80,0.4)] hover:shadow-[0_0_60px_rgba(255,127,80,0.6)] hover:scale-105 active:scale-95 group border-2 border-white/20">
+                <router-link to="/shop" class="inline-flex items-center justify-center px-10 py-3 text-md sm:text-lg font-extrabold text-white bg-coral-500 rounded-full hover:bg-coral-600 transition-all shadow-[0_0_40px_rgba(255,127,80,0.4)] hover:shadow-[0_0_60px_rgba(255,127,80,0.6)] hover:scale-105 active:scale-95 group border-2 border-white/20">
                   Shop Now
                 </router-link>
                 <router-link 
                   :to="'/shop?category=' + slide.buttonLink"
-                  class="inline-flex items-center justify-center px-12 py-5 text-xl sm:text-lg font-extrabold text-white bg-slate-900 rounded-full hover:bg-slate-800 transition-all shadow-lg hover:scale-105 active:scale-95 border-2 border-white/20">
+                  class="inline-flex items-center justify-center px-10 py-3 text-md sm:text-lg font-extrabold text-white bg-slate-900 rounded-full hover:bg-slate-800 transition-all shadow-lg hover:scale-105 active:scale-95 border-1 border-white/20">
                   {{ slide.buttonText }}
                   <ArrowRight class="ml-3 w-6 h-6 group-hover:translate-x-2 transition-transform" />
                 </router-link>
@@ -200,7 +200,7 @@ onUnmounted(() => {
     </section>
 
     <!-- Categories -->
-    <section class="pt-20 bg-gray-50">
+    <section class="pt-10 bg-gray-50">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center mb-16 reveal reveal-fade-up">
           <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4 tracking-tight">Shop by Category</h2>
@@ -233,7 +233,7 @@ onUnmounted(() => {
     </section>
 
     <!-- Featured Products -->
-    <section class="py-24 bg-white">
+    <section class="py-10 bg-white">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between items-end mb-12 reveal reveal-fade-up">
           <div>
@@ -356,9 +356,9 @@ onUnmounted(() => {
     </section>
 
     <!-- Customer Reviews -->
-    <section class="py-10 bg-gray-50 overflow-hidden">
+    <section class="py-5 bg-gray-50 overflow-hidden">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center mb-16 reveal reveal-fade-up">
+        <div class="text-center mb-5 reveal reveal-fade-up">
           <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4 tracking-tight">What Anglers Say</h2>
           <div class="w-24 h-1.5 bg-gradient-to-r from-coral-500 to-blue-500 mx-auto rounded-full"></div>
         </div>
@@ -400,7 +400,7 @@ onUnmounted(() => {
     </section>
 
     <!-- Partners Carousel -->
-    <section class="py-16 bg-white border-t border-gray-100 reveal reveal-fade-up overflow-hidden">
+    <section class="py-5 bg-white border-t border-gray-100 reveal reveal-fade-up overflow-hidden">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <h3 class="text-center text-sm font-semibold text-gray-400 uppercase tracking-widest mb-10">Trusted Brands We Carry</h3>
         
@@ -419,7 +419,7 @@ onUnmounted(() => {
           >
             <swiper-slide v-for="(partner, i) in partners" :key="i" class="flex items-center justify-center py-4">
               <div class="w-40 mx-auto mix-blend-multiply flex items-center justify-center filter grayscale opacity-60 hover:opacity-100 hover:grayscale-0 transition-all cursor-pointer">
-                <img :src="partner.logo" :alt="partner.name" class="w-full h-auto object-contain">
+                <img :src="partner.logo" :alt="partner.name" class="w-full h-auto object-contain px-4">
               </div>
             </swiper-slide>
           </swiper>

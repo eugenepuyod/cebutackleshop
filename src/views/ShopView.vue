@@ -252,7 +252,7 @@ const addToCart = () => {
             class="bg-white rounded-2xl border border-gray-100 overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 group cursor-pointer flex flex-col h-[500px]"
             @click="openQuickView(product)"
           >
-            <div class="h-[250px] w-full bg-gray-50 flex items-center justify-center p-6 relative overflow-hidden shrink-0 border-b border-gray-50">
+            <div class="h-[300px] sm:h-[250px] lg:h-[250px] w-full bg-gray-50 flex items-center justify-center p-6 relative overflow-hidden shrink-0 border-b border-gray-50">
               <img :src="product.image" :alt="product.name" class="h-full object-contain mix-blend-multiply group-hover:scale-110 transition-transform duration-500">
               <div class="absolute top-4 left-4 bg-coral-500 text-white text-[11px] font-bold px-3 py-1.5 rounded-full uppercase tracking-widest shadow-sm">
                 Best Seller
@@ -388,7 +388,7 @@ const addToCart = () => {
       leave-to-class="translate-x-full"
     >
       <div v-if="quickViewProduct" class="fixed inset-y-0 right-0 w-full sm:w-[500px] bg-white shadow-2xl z-[70] flex flex-col overflow-y-auto border-l border-gray-100">
-        <div class="relative h-80 bg-gray-50 flex items-center justify-center p-8 shrink-0">
+        <div class="relative h-80 bg-gray-50 flex items-center justify-center p-8 pb-0 shrink-0">
           <button @click="closeQuickView" class="absolute top-6 right-6 p-2 bg-white rounded-full shadow-md hover:bg-gray-100 hover:scale-110 transition-all z-10">
             <X class="w-5 h-5 text-gray-700" />
           </button>
