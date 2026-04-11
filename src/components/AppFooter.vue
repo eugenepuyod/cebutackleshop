@@ -5,7 +5,7 @@ import { Facebook, Twitter, Instagram, MapPin, Phone, Mail, ShieldCheck } from '
 <template>
   <footer class="relative text-white pt-16 pb-8 border-t-[8px] border-coral-500 bg-gray-900 overflow-hidden">
     <div class="absolute inset-0 z-0">
-      <img src="/images/rugged-underwater-lanscape.avif" alt="Ocean Background" class="w-full h-full object-cover opacity-80" />
+      <img src="/images/deep_ocean_footer.png" alt="Ocean Background" class="w-full h-full object-cover opacity-80" />
       <!-- <img src="/images/deep_ocean_footer.png" alt="Ocean Background" class="w-full h-full object-cover opacity-80" /> -->
       <div class="absolute inset-0 bg-gradient-to-t from-[#0f172a]/95 via-[#1e3a8a]/80 to-[#1e3a8a]/60"></div>
     </div>
