@@ -118,7 +118,6 @@ const startCounting = (entries) => {
 }
 
 onMounted(() => {
-  window.scrollTo({ top: 0, behavior: 'smooth' })
   // Counters Observer
   observer = new IntersectionObserver(startCounting, { threshold: 0.5 })
   if (counterSection.value) observer.observe(counterSection.value)
@@ -138,6 +137,8 @@ onMounted(() => {
   document.querySelectorAll('.reveal').forEach((el) => {
     scrollObserver.observe(el)
   })
+  
+  window.scrollTo({ top: 0, behavior: 'smooth' })
 })
 
 onUnmounted(() => {
