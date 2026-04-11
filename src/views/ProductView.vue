@@ -138,7 +138,7 @@ const addToCart = () => {
           </div>
           
           <!-- Thumbnails -->
-          <div class="relative group/slider mt-2 px-6">
+          <div class="relative group/slider mt-2 px-6 md:mt-[-127px]">
               
               <button @click="scrollLeft" class="absolute left-0 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white shadow-[0_4px_15px_rgba(0,0,0,0.1)] border border-slate-100 flex items-center justify-center text-slate-600 hover:text-brand-600 hover:scale-110 transition-all z-20 opacity-0 group-hover/slider:opacity-100 focus:opacity-100">
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>

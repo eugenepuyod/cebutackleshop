@@ -118,6 +118,7 @@ const startCounting = (entries) => {
 }
 
 onMounted(() => {
+  window.scrollTo({ top: 0, behavior: 'smooth' })
   // Counters Observer
   observer = new IntersectionObserver(startCounting, { threshold: 0.5 })
   if (counterSection.value) observer.observe(counterSection.value)
@@ -254,7 +255,7 @@ onUnmounted(() => {
           >
             <router-link 
               :to="`/product/${product.id}`"
-              class="group bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-xl transition-all overflow-hidden flex flex-col h-[500px]"
+              class="group bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-xl transition-all overflow-hidden flex flex-col min-h-[500px]"
             >
               <div class="relative h-[250px] w-full overflow-hidden bg-white flex items-center justify-center p-6 border-b border-gray-50 shrink-0">
                 <img :src="product.image" :alt="product.name" class="h-full object-contain mix-blend-multiply transition-transform duration-500 group-hover:scale-110">
@@ -304,18 +305,19 @@ onUnmounted(() => {
                 
                 <p class="text-sm text-gray-500 line-clamp-2 leading-relaxed mb-auto">{{ product.shortDesc }}</p>
                 
-                <div class="flex flex-wrap gap-1.5 pt-4 mt-2">
+                <div class="flex flex-wrap gap-1.5 pt-0 mt-2">
                   <span v-for="tag in product.tags" :key="tag" class="text-[9px] font-bold text-gray-600 bg-gray-100 px-2.5 py-1 rounded-md uppercase tracking-wider">{{ tag }}</span>
                 </div>
+
+                <div class="w-full py-5 md:hidden
+                ">
+                  <button @click.prevent="cartStore.addItem(product, 1)" class="w-full bg-coral-500 hover:bg-slate-900 text-white font-bold py-3.5 rounded-xl flex items-center justify-center transition-colors shadow-lg text-sm">
+                    <ShoppingBag class="w-4 h-4 mr-2" /> Add to Cart
+                  </button>
+                </div>
                 
-                <div 
-                :class="[
-                  'absolute bottom-0 left-0 w-full p-5 transition-all duration-300 bg-white/95 backdrop-blur-sm z-20',
-                  show ? 'translate-y-0 opacity-100' : 'translate-y-full opacity-0'
-                ]">
-                  <button 
-                  @click.stop.prevent="cartStore.addItem(product, 1)"
-      class="w-full bg-coral-500 active:bg-slate-900 text-white font-bold py-3.5 rounded-xl flex items-center justify-center shadow-lg text-sm">
+                <div class="absolute bottom-0 left-0 w-full p-4 transform translate-y-full opacity-0 md:group-hover:translate-y-0 md:group-hover:opacity-100 transition-all duration-300 bg-white/95 backdrop-blur-sm z-20 hidden md:block">
+                  <button @click.prevent="cartStore.addItem(product, 1)" class="w-full bg-coral-500 hover:bg-slate-900 text-white font-bold py-3.5 rounded-xl flex items-center justify-center transition-colors shadow-lg text-sm">
                     <ShoppingBag class="w-4 h-4 mr-2" /> Add to Cart
                   </button>
                 </div>

@@ -52,6 +52,7 @@ const allBrands = [...new Set(products.map(p => p.name.split(' ')[0].toUpperCase
 const totalPages = computed(() => Math.ceil(filteredProducts.value.length / itemsPerPage))
 
 const paginatedProducts = computed(() => {
+  window.scrollTo({ top: 0, behavior: 'smooth' })
   const start = (currentPage.value - 1) * itemsPerPage
   const end = start + itemsPerPage
   return filteredProducts.value.slice(start, end)
