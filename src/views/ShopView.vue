@@ -58,6 +58,31 @@ const paginatedProducts = computed(() => {
   return filteredProducts.value.slice(start, end)
 })
 
+// Smart pagination
+const visiblePages = computed(() => {
+  const total = totalPages.value
+  const current = currentPage.value
+  const delta = 1 // how many pages around current
+
+  const pages = []
+
+  for (let i = 1; i <= total; i++) {
+    if (
+      i === 1 || 
+      i === total || 
+      (i >= current - delta && i <= current + delta)
+    ) {
+      pages.push(i)
+    } else if (
+      pages[pages.length - 1] !== '...'
+    ) {
+      pages.push('...')
+    }
+  }
+
+  return pages
+})
+
 watch(route, () => {
   if (route.query.category) {
     selectedCategory.value = route.query.category
@@ -347,14 +372,23 @@ const addToCart = () => {
             >
               <ChevronLeft class="w-5 h-5" />
             </button>
-            <button 
-              v-for="page in totalPages" 
-              :key="page"
-              @click="currentPage = page"
-              :class="['w-10 h-10 rounded-full flex items-center justify-center font-semibold transition-all', currentPage === page ? 'bg-coral-500 text-white shadow-md' : 'text-gray-700 hover:bg-gray-100 border border-gray-200']"
+            <button
+              v-for="(page, index) in visiblePages"
+              :key="index"
+              @click="page !== '...' && (currentPage = page)"
+              :disabled="page === '...'"
+              :class="[
+                'w-10 h-10 rounded-full flex items-center justify-center font-semibold transition-all',
+                page === currentPage
+                  ? 'bg-coral-500 text-white shadow-md'
+                  : page === '...'
+                  ? 'cursor-default text-gray-400'
+                  : 'text-gray-700 hover:bg-gray-100 border border-gray-200'
+              ]"
             >
               {{ page }}
             </button>
+            
             <button 
               @click="currentPage < totalPages && currentPage++"
               :disabled="currentPage === totalPages"
