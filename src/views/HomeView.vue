@@ -198,7 +198,7 @@ onUnmounted(() => {
 <template>
   <div class="home-page overflow-hidden">
     <!-- Hero Banner -->
-    <section class="h-[680px] sm:h-[680px] md:h-[600px] relative mt-[-72px] overflow-hidden">
+    <section class="h-[680px] sm:h-[680px] md:h-[600px] lg:h-[900px] relative mt-[-72px] overflow-hidden">
       <swiper 
         :modules="swiperModules"
         :effect="'fade'"
@@ -383,7 +383,7 @@ onUnmounted(() => {
     </section>
 
     <!-- Bundle Discount Catalogs -->
-    <section class="py-20 bg-gray-900 text-white overflow-hidden relative">
+    <section class="py-20 bg-gray-900 text-white overflow-hidden relative hidden">
       <div class="absolute inset-0 opacity-20 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-blue-900 via-gray-900 to-black pointer-events-none"></div>
       
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -401,7 +401,7 @@ onUnmounted(() => {
               768: { slidesPerView: 2, spaceBetween: 10 },    // tablet
               1024: { slidesPerView: 3, spaceBetween: 25 },    // up
             }"
-            :navigation="false"
+            :navigation="{ prevEl: '.swiper-button-prev-bundledexclusive', nextEl: '.swiper-button-next-bundledexclusive' }"
             :speed="1500"
             :autoplay="false"
             :loop="true"
@@ -480,6 +480,26 @@ onUnmounted(() => {
               </div>
             </swiper-slide>
           </swiper>
+          <button class="swiper-button-prev-bundledexclusive absolute top-3/4 left-0 -translate-y-1/2 -mt-8 
+            bg-black/80 backdrop-blur-md border border-white/10 
+            shadow-[0_8px_25px_rgba(0,0,0,0.6)] 
+            w-16 h-16 rounded-full flex items-center justify-center 
+            text-white hover:text-red-400 
+            hover:shadow-[0_0_25px_rgba(239,68,68,0.5)] 
+            transition-all duration-300 z-10 focus:outline-none 
+            hover:scale-110 active:scale-95">
+            <ChevronLeft class="w-8 h-8" />
+          </button>
+          <button class="swiper-button-next-bundledexclusive absolute top-3/4 right-0 -translate-y-1/2 -mt-8 
+            bg-black/80 backdrop-blur-md border border-white/10 
+            shadow-[0_8px_25px_rgba(0,0,0,0.6)] 
+            w-16 h-16 rounded-full flex items-center justify-center 
+            text-white hover:text-red-400 
+            hover:shadow-[0_0_25px_rgba(239,68,68,0.5)] 
+            transition-all duration-300 z-10 focus:outline-none 
+            hover:scale-110 active:scale-95">
+            <ChevronRight class="w-8 h-8" />
+          </button>
         </div>
       </div>
     </section>
@@ -507,7 +527,7 @@ onUnmounted(() => {
               768: { slidesPerView: 2, spaceBetween: 10 },    // tablet
               1024: { slidesPerView: 3, spaceBetween: 25 },    // up
             }"
-            :navigation="false"
+            :navigation="{ prevEl: '.swiper-button-prev-bundledend', nextEl: '.swiper-button-next-bundledend' }"
             :speed="1500"
             :autoplay="false"
             :loop="true"
@@ -607,6 +627,26 @@ onUnmounted(() => {
               </div>
             </swiper-slide>
           </swiper>
+          <button class="swiper-button-prev-bundledend absolute top-3/4 left-0 -translate-y-1/2 -mt-8 
+            bg-black/80 backdrop-blur-md border border-white/10 
+            shadow-[0_8px_25px_rgba(0,0,0,0.6)] 
+            w-16 h-16 rounded-full flex items-center justify-center 
+            text-white hover:text-red-400 
+            hover:shadow-[0_0_25px_rgba(239,68,68,0.5)] 
+            transition-all duration-300 z-10 focus:outline-none 
+            hover:scale-110 active:scale-95">
+            <ChevronLeft class="w-8 h-8" />
+          </button>
+          <button class="swiper-button-next-bundledend absolute top-3/4 right-0 -translate-y-1/2 -mt-8 
+            bg-black/80 backdrop-blur-md border border-white/10 
+            shadow-[0_8px_25px_rgba(0,0,0,0.6)] 
+            w-16 h-16 rounded-full flex items-center justify-center 
+            text-white hover:text-red-400 
+            hover:shadow-[0_0_25px_rgba(239,68,68,0.5)] 
+            transition-all duration-300 z-10 focus:outline-none 
+            hover:scale-110 active:scale-95">
+            <ChevronRight class="w-8 h-8" />
+          </button>
         </div>
       </div>
     </section>
@@ -617,7 +657,7 @@ onUnmounted(() => {
     
 
     <!-- Customer Reviews -->
-    <section class="py-5 bg-gray-50 overflow-hidden">
+    <section class="py-5 lg:pt-20 bg-gray-50 overflow-hidden">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center mb-5 reveal reveal-fade-up">
           <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4 tracking-tight">What Anglers Say</h2>
@@ -630,7 +670,7 @@ onUnmounted(() => {
             :slidesPerView="1"
             :breakpoints="{ 768: { slidesPerView: 2, spaceBetween: 24 }, 1024: { slidesPerView: 3, spaceBetween: 32 } }"
             :navigation="{ prevEl: '.swiper-button-prev-custom', nextEl: '.swiper-button-next-custom' }"
-            :pagination="{ clickable: true }"
+            :pagination="false"
             :autoplay="{ delay: 6000, disableOnInteraction: false }"
             :loop="true"
             class="pb-16"

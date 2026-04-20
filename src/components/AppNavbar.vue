@@ -7,10 +7,10 @@ const cartStore = useCartStore()
 const isMobileMenuOpen = ref(false)
 
 const navLinks = [
-  { name: 'Home', path: '/' },
-  { name: 'Shop', path: '/shop' },
-  { name: 'About', path: '/about' },
-  { name: 'Contact', path: '/contact' }
+  { name: 'New & Featured', path: '/shop?tag=New' },
+  { name: 'Rods', path: '/shop?tag=Rods' },
+  { name: 'Reels', path: '/shop?tag=Reels' },
+  { name: 'Sale', path: '/shop?tag=Sale' }
 ]
 </script>
 
